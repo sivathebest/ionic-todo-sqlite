@@ -1,0 +1,77 @@
+<ion-view view-title="Siva Todos">
+  <!-- <ion-header-bar align-title="center">
+    <div class="buttons">
+      <button class="button button-icon icon ion-navicon" ng-click="back()"></button>
+    </div>
+    <h1 class="title">Add todo</h1>
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="closeLogin()">Assign</button>
+    </div>
+  </ion-header-bar> -->
+
+  <ion-content ng-contorller="todolist">
+
+
+      <!-- <ion-checkbox ng-repeat="fsdata in allTodos" ng-model="checkItems[fsdata.id]" ng-change="print()">
+        {{ fsdata.desc }}
+      </ion-checkbox> -->
+
+      <ion-list>
+        <!-- <ion-item class="item-button-right">
+          siva-todos
+          <div class="buttons">
+            <button type="button" class="button button-positive button-clear" ng-click="todocomp(fsdata.id)">
+              <i ng-class="fsdata.todo_status = '0' ? 'ion-checkmark-circled' : 'icon ion-close' "></i>
+             <i ng-if="fsdata.todo_status != 0" class="icon ion-close"></i> -->
+            <!--  </button>
+            <button type="button" class="button button-positive">
+              assign
+            </button>
+
+          </div>
+        </ion-item> -->
+        <ion-item ng-repeat="fsdata in allTodos" class="item-button-right" >
+          {{ fsdata.desc }}
+
+          <div class="buttons">
+            <button type="button" class="button button-positive" ng-click="todocomp(fsdata.id)">
+              <i ng-class="fsdata.todo_status === 0 ? 'ion-checkmark-circled' : (fsdata.todo_status === 2 ? 'ion-clock' : 'icon ion-close-circled') "></i>
+              <!-- <i ng-if="fsdata.todo_status != 0" class="icon ion-close"></i> -->
+            </button>
+            <button type="button" class="button button-positive" ng-click="go_edittodo(fsdata.id)">
+              <i class="ion-edit" ></i>
+              <!-- <i ng-if="fsdata.todo_status != 0" class="icon ion-close"></i> -->
+            </button>
+            <!-- <button class="button button-small button-positive button-clear" modal-select="" ng-model="someSetModel" options="user_list" option-property="name" option-getter="getOpt(option)" has-search="true">
+               {{ if(user_list.created_by === user_list.assigned_to) ? user_list.assigned_to : someSetModel || user_list.assigned_to }} -->
+            <!--  assign
+            <div class="option">
+                <h2>{{option.name}}</h2>
+                <p>{{option.id}}</p>
+              </div>
+            </button> -->
+
+            <button ng-hide=assign_show type="button" class="button button-positive" ng-click="show_user_list(fsdata.id, $event)">
+              <i ng-hide="fsdata.created_by === fsdata.assigned_to ? false : true" class="ion-chevron-right"></i>
+              <span ng-hide="fsdata.created_by === fsdata.assigned_to ? true : false"> {{fsdata.assigned_to_name}} </span>
+            </button>
+
+          </div>
+        </ion-item>
+      </ion-list>
+      <form ng-submit="addtodo(data)">
+      <label class="item item-input">
+        <input type="text" ng-model="data.desc" placeholder="add todo....">
+      </label>
+
+      <label class="item">
+        <button class="button button-block button-positive" ng-disabled="!data.desc" type="submit">Add todo</button>
+      </label>
+      <!-- <label class="item">
+  <button class="button button-block button-positive" type="button" ng-click="select('sss')">Search</button>
+</label> -->
+
+
+
+  </ion-content>
+</ion-view>

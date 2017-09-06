@@ -1,0 +1,36 @@
+<ion-view view-title="Siva Todos">
+  <!-- <ion-header-bar align-title="center">
+    <div class="buttons">
+      <button class="button button-icon icon ion-navicon" ng-click="back()"></button>
+    </div>
+    <h1 class="title">Add todo</h1>
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="closeLogin()">Assign</button>
+    </div>
+  </ion-header-bar> -->
+
+  <ion-content ng-contorller="edittodo">
+
+    <!-- <ion-checkbox ng-repeat="fsdata in allTodos" ng-model="checkItems[fsdata.id]" ng-change="print()">
+        {{ fsdata.desc }}
+      </ion-checkbox> -->
+    <form >
+      <ion-list>
+        <ion-item >
+              <input type="text" ng-model="data.desc" ng-value="fetch_desc"  placeholder="edit todo....">
+            </ion-item>
+        </ion-list>
+
+        <label class="item">
+          <button class="button button-block button-positive"  type="button" ng-click="edit_todo(data)">Save</button>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive"  type="button" ng-click="delete_todo()">Delete</button>
+        </label>
+        <!-- <label class="item">
+  <button class="button button-block button-positive" type="button" ng-click="select('sss')">Search</button>
+</label> -->
+
+    </form>
+    </ion-content>
+  </ion-view>
